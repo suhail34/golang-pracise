@@ -10,9 +10,9 @@ func main() {
 	done := make(chan struct{})
 	for i := 0; i < 30; i++ {
 		go func() {
-			instance := patterns.GetInstance()
+			//_ = patterns.GetInstanceNew()
+      _ = patterns.GetInstance()
 			done <- struct{}{}
-			fmt.Printf("Using instance: %p\n", instance)
 		}()
 		// go patterns.GetInstance(done)
 	}
@@ -25,7 +25,4 @@ func main() {
 	fmt.Println(car.GetName())
 	mobile := patterns.GetShop(patterns.MobileType)
 	fmt.Println(mobile.GetName())
-	// Scanln is similar to Scan, but stops scanning at a newline and
-	// after the final item there must be a newline or EOF.
-	// fmt.Scanln()
 }
