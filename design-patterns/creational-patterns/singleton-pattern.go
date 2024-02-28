@@ -1,4 +1,4 @@
-package patterns
+package creationalpatterns
 
 import (
 	"fmt"

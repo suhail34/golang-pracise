@@ -1,4 +1,4 @@
-package patterns
+package creationalpatterns
 
 type Shop interface {
 	GetName() string

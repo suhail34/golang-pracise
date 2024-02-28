@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 
-	patterns "example.com/design-patterns/patterns"
+	behavioralpatterns "example.com/design-patterns/behavioral-patterns"
+	patterns "example.com/design-patterns/creational-patterns"
 )
 
 func main() {
 	done := make(chan struct{})
-	for i := 0; i < 30; i++ {
+	for i := 0; i < 5; i++ {
 		go func() {
 			//_ = patterns.GetInstanceNew()
       _ = patterns.GetInstance()
@@ -17,7 +18,7 @@ func main() {
 		// go patterns.GetInstance(done)
 	}
 
-	for i := 0; i < 30; i++ {
+	for i := 0; i < 5; i++ {
 		<-done
 	}
 
@@ -25,4 +26,9 @@ func main() {
 	fmt.Println(car.GetName())
 	mobile := patterns.GetShop(patterns.MobileType)
 	fmt.Println(mobile.GetName())
+
+  ctx := behavioralpatterns.GetContext()
+  ctx.GetState()
+  ctx.SetState(&behavioralpatterns.Published{})
+  ctx.GetState()
 }
